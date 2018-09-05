@@ -20,10 +20,12 @@ In the code window of the module, copy the macro code: CreateTOC.
 Insert as many module as you want...
 
 3. Save as .xlsm
+
 In the Visual Basic Editor, on the File menu, click Close and Return to Microsoft Excel.
 On the File menu, click Save As, and then save the file as an Excel Macro-Enabled Workbook (.xlsm).
 
 4. Run macro
+
 On the Developer tab, in the Code group, click Macro Security.
 Under Macro Settings, click Enable all macros (not recommended, potentially dangerous code can run), and then click OK.
 
