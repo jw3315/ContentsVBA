@@ -1,0 +1,50 @@
+Sub Contents_Hyperlinks()
+'PURPOSE: Add hyperlinked buttons back to Table of Contents worksheet tab
+'SOURCE: www.TheSpreadsheetGuru.com
+
+Dim sht As Worksheet
+Dim shp As Shape
+Dim ContentName As String
+Dim ButtonID As String
+
+'Inputs:
+  ContentName = "Contents" 'Table of Contents Worksheet Name
+  ButtonID = "_ContentButton" 'ID to Track Buttons for deletion
+  
+'Loop Through Each Worksheet in Workbook
+  For Each sht In ActiveWorkbook.Worksheets
+  
+    If sht.Name <> ContentName Then
+      
+      'Delete Old Button (if necessary when refreshing)
+        For Each shp In sht.Shapes
+          If Right(shp.Name, Len(ButtonID)) = ButtonID Then
+            shp.Delete
+            Exit For
+          End If
+        Next shp
+        
+      'Create & Position Shape
+        Set shp = sht.Shapes.AddShape(msoShapeRoundedRectangle, _
+          4, 4, 60, 20)
+
+      'Format Shape
+        shp.Fill.ForeColor.RGB = RGB(91, 155, 213) 'Blue
+        shp.Line.Visible = msoFalse
+        shp.TextFrame2.TextRange.Font.Size = 10
+        shp.TextFrame2.TextRange.Text = ContentName
+        shp.TextFrame2.TextRange.Font.Bold = True
+        shp.TextFrame2.TextRange.Font.Fill.ForeColor.RGB = RGB(255, 255, 255) 'White
+      
+      'Track Shape Name with ID Tag
+        shp.Name = shp.Name & ButtonID
+      
+      'Assign Hyperlink to Shape
+        sht.Hyperlinks.Add shp, "", _
+          SubAddress:="'" & ContentName & "'!A1"
+  
+    End If
+    
+  Next sht
+
+End Sub
