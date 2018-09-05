@@ -5,19 +5,25 @@ A useful trick to automatically create table of contens in Excel learnt from Chr
 https://www.thespreadsheetguru.com/blog/2015/3/28/automate-building-table-of-contents-spreadsheet-with-vba#disqus_thread
 Save it for future.
 
+1. Lift the Developer tab
+
 Click the File tab.
 Under Help, click Options.
 Click Customize Ribbon.
 Under Customize the Ribbon, select the Developer check box.
 
+2. Create macro
+
 On the Developer tab, in the Code group, click Visual Basic.
 In the Visual Basic Editor, on the Insert menu, click Module.
-In the code window of the module, copy the macro code: CreateTOC
+In the code window of the module, copy the macro code: CreateTOC.
 Insert as many module as you want...
 
+3. Save as .xlsm
 In the Visual Basic Editor, on the File menu, click Close and Return to Microsoft Excel.
 On the File menu, click Save As, and then save the file as an Excel Macro-Enabled Workbook (.xlsm).
 
+4. Run macro
 On the Developer tab, in the Code group, click Macro Security.
 Under Macro Settings, click Enable all macros (not recommended, potentially dangerous code can run), and then click OK.
 
